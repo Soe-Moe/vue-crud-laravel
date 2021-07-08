@@ -22,4 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('v1')->group(function () {
     Route::get('customers', [CustomerController::class, 'index']);
     Route::post('customer/store', [CustomerController::class, 'store']);
+    Route::delete('customer/{customer}/delete', [CustomerController::class, 'destroy']);
+    Route::get('customer/{customer}/data', [CustomerController::class, 'customerData']);
+    Route::post('customer/{customer}/update', [CustomerController::class, 'update']);
 });

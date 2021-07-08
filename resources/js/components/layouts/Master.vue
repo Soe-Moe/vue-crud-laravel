@@ -2,8 +2,9 @@
     <div>
         <navbar></navbar>
         <div class="container">
-            <router-view></router-view>
+            <router-view :key="$route.path"></router-view>
             <vue-progress-bar></vue-progress-bar>
+            <vue-confirm-dialog></vue-confirm-dialog>
         </div>
     </div>
 </template>

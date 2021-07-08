@@ -41,4 +41,56 @@ class CustomerController extends Controller
             ]);
         }
     }
+
+    public function update(CustomerRequest $request, Customer $customer)
+    {
+        try {
+            $inputs = $request->only(['name', 'email', 'address']);
+            $customer->update($inputs);
+            $data = new CustomerResource($customer);
+            return response()->json([
+                'status' => 1,
+                'message' => 'Successfully',
+                'data' => $data
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 0,
+                'message' => 'Fail'
+            ]);
+        }
+    }
+
+    public function customerData(Customer $customer)
+    {
+        try {
+            $data = new CustomerResource($customer);
+            return response()->json([
+                'status' => 1,
+                'message' => 'Success',
+                'data' => $data
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 0,
+                'message' => 'Fail'
+            ]);
+        }
+    }
+
+    public function destroy(Customer $customer)
+    {
+        try {
+            $customer->delete();
+            return response()->json([
+                'status' => 1,
+                'message' => 'Successfully Deleted'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 0,
+                'message' => 'Fail'
+            ]);
+        }
+    }
 }

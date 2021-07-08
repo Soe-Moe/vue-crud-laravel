@@ -26,19 +26,25 @@ Vue.use(VueToast, {
     position: 'bottom-right'
 });
 
+//Vue Dialog
+import VueConfirmDialog from 'vue-confirm-dialog'
+Vue.use(VueConfirmDialog)
+Vue.component('vue-confirm-dialog', VueConfirmDialog.default)
+
 //Master
 import Master from './components/layouts/Master'
 Vue.component('master', Master)
 
 //Vue router
 import Home from './components/pages/Index'
-import AddCustomer from './components/pages/AddCustomer'
+import CustomerForm from './components/pages/CustomerForm'
 
 import VueRouter from "vue-router";
 Vue.use(VueRouter)
 const routes = [
     { path: '/',name: 'home', component: Home },
-    { path: '/add-customer', name: 'add-customer', component: AddCustomer },
+    { path: '/add-customer', name: 'add-customer', component: CustomerForm },
+    { path: '/:id/edit-customer', name: 'edit-customer', component: CustomerForm },
 ];
 
 const router = new VueRouter({

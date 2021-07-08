@@ -27,6 +27,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "vue-confirm-dialog": "^1.0.2",
         "vue-infinite-loading": "^2.4.5",
         "vue-progressbar": "^0.7.5",
         "vue-router": "^3.5.2",
